@@ -5,6 +5,8 @@ import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
 import com.thoughtworks.gtb.bbasicquiz.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -22,7 +24,7 @@ public class UserController {
 
 
     @PostMapping
-    public User register(@RequestBody User user) {
+    public User register(@RequestBody @Valid User user) {
         return userService.register(user);
     }
 }
