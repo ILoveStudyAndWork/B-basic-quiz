@@ -20,6 +20,5 @@ public class ExceptionConstants {
     public static final int NOT_FOUND_STATUS = 404;
     public static final int BAD_REQUEST_STATUS = 400;
 
-
     public static final String USER_NOT_EXIST_WHEN_GET_USER_INFO = "Cannot find basic info for user with id " ;
 }

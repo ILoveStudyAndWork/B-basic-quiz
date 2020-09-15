@@ -2,7 +2,6 @@ package com.thoughtworks.gtb.bbasicquiz.controller;
 
 import com.thoughtworks.gtb.bbasicquiz.domain.Education;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
-import com.thoughtworks.gtb.bbasicquiz.repository.UserRepository;
 import com.thoughtworks.gtb.bbasicquiz.service.EducationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +13,9 @@ import java.util.List;
 public class EducationController {
 
     private final EducationService educationService;
-    private final UserRepository userRepository;
 
-    public EducationController(EducationService educationService, UserRepository userRepository) {
+    public EducationController(EducationService educationService) {
         this.educationService = educationService;
-        this.userRepository = userRepository;
     }
 
     @PostMapping("/users/{userId}/educations")

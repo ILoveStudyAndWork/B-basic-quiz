@@ -1,6 +1,5 @@
 package com.thoughtworks.gtb.bbasicquiz.service;
 
-import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionConstants;
 import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionFromConstants;
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
