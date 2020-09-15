@@ -1,5 +1,6 @@
 package com.thoughtworks.gtb.bbasicquiz.domain;
 
+import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionConstants;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,14 +17,14 @@ public class Education {
 
     private long userId;
 
-    @NotNull(message = "历年不可为空")
+    @NotNull(message = ExceptionConstants.YEAR_CAN_NO_BE_NULL)
     private long year;
 
-    @NotNull(message = "教育经历标题不可为空")
-    @Length(min = 1,max = 256,message = "教育经历标题必须大于1并小于256")
+    @NotNull(message = ExceptionConstants.EDUCATION_TITLE_CAN_NOT_BE_NULL)
+    @Length(min = 1,max = 256,message = ExceptionConstants.EDUCATION_TITLE_LENGTH_CONSTRAIN)
     private String title;
 
-    @NotNull(message = "教育经历描述不可为空")
-    @Length(min = 1,max = 256,message = "教育经历描述必须大于1并小于4096")
+    @NotNull(message = ExceptionConstants.EDUCATION_DESCRIPTION_CAN_NOT_BE_NULL)
+    @Length(min = 1,max = 4096,message = ExceptionConstants.EDUCATION_DESCRIPTION_LENGTH_CONSTRAIN)
     private String description;
 }

@@ -1,5 +1,6 @@
 package com.thoughtworks.gtb.bbasicquiz.domain;
 
+import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionConstants;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
@@ -13,18 +14,18 @@ import javax.validation.constraints.NotNull;
 public class User {
 
     private long id;
-    @NotNull(message = "名字不能为空")
-    @Length(min = 1,max = 128,message = "名字长度必须大于1并小于128")
+    @NotNull(message = ExceptionConstants.NAME_CAN_NO_BE_NULL)
+    @Length(min = 1,max = 128,message = ExceptionConstants.NAME_LENGTH_CONSTRAIN)
     private String name;
 
-    @NotNull(message = "年龄不能为空")
-    @Min(value = 16,message = "年龄必须大于16")
+    @NotNull(message = ExceptionConstants.AGE_CAN_NOT_BE_NULL)
+    @Min(value = 16,message = ExceptionConstants.AGE_LENGTH_CONSTRAIN)
     private long age;
 
-    @NotNull(message = "头像链接图片不能为空")
-    @Length(min = 8, max = 512, message = "头像图片链接地址长度必须大于8并小于512")
+    @NotNull(message = ExceptionConstants.AVATAR_CAN_NOT_BE_NULL)
+    @Length(min = 8, max = 512, message = ExceptionConstants.AVATAR_LENGTH_CONSTRAIN)
     private String avatar;
 
-    @Length(max = 1024, message = "个人介绍信息长度必须小于1024")
+    @Length(max = 1024, message = ExceptionConstants.USER_DESCRIPTION_LENGTH_CONSTRAIN)
     private String description;
 }
