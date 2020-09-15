@@ -3,6 +3,7 @@ package com.thoughtworks.gtb.bbasicquiz.controller;
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
 import com.thoughtworks.gtb.bbasicquiz.service.UserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,6 +25,7 @@ public class UserController {
 
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public User register(@RequestBody @Valid User user) {
         return userService.register(user);
     }
