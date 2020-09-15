@@ -18,7 +18,7 @@ public class Education {
     private long userId;
 
     @NotNull(message = ExceptionConstants.YEAR_CAN_NO_BE_NULL)
-    private long year;
+    private Long year;
 
     @NotNull(message = ExceptionConstants.EDUCATION_TITLE_CAN_NOT_BE_NULL)
     @Length(min = 1,max = 256,message = ExceptionConstants.EDUCATION_TITLE_LENGTH_CONSTRAIN)
