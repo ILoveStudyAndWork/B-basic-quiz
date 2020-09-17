@@ -1,5 +1,6 @@
 package com.thoughtworks.gtb.bbasicquiz.constants;
 
+// GTB: + 集中管理各种常量
 public class ExceptionConstants {
 
     public static final String USER_NOT_EXIST_WHEN_GET_EDUCATION = "user no exist with id " ;

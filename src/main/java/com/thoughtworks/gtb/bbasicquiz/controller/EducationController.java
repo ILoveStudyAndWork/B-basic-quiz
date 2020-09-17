@@ -25,6 +25,7 @@ public class EducationController {
     }
 
     @GetMapping("/users/{userId}/educations")
+    // GTB: - 名字粘贴-复制之后忘改了吧 addEducationById
     public List<Education> addEducationById(@PathVariable long userId) throws UserNotExistException {
         return educationService.getEducationById(userId);
     }

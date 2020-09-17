@@ -21,6 +21,7 @@ public class EducationService {
         this.educationRepository = educationRepository;
     }
 
+    // GTB: - 跟getEducationById有很多重复代码，能优化不？
     public Education addEducationById(long userId, Education education) throws UserNotExistException {
         User user = userRepository.findById(userId);
         if (user == null){

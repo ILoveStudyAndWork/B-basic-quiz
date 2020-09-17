@@ -16,6 +16,8 @@ public class UserRepositoryImpl implements UserRepository {
         return users.stream()
                 .filter(user -> user.getId() == id)
                 .findFirst()
+                // GTB: orElse 这里直接抛异常行不？
+                // GTB: 这里直接返回 Optional 行不？
                 .orElse(null);
     }
 

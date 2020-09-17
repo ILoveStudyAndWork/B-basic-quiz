@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 @Repository
 public class EducationRepositoryImpl implements EducationRepository{
 
+    // GTB: IDE 都提示了，为啥不改？
     private static List<Education> educations = new ArrayList<>();
 
     @Override
