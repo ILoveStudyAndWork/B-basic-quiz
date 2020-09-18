@@ -16,11 +16,11 @@ public class UserService {
 
 
     public User getUserById(long id) throws UserNotExistException {
-        User user = userRepository.findById(id);
-        if (user == null){
+        User user = userRepository.findById(id).get();
+        if (user == null ){
             throw new UserNotExistException(ExceptionFromConstants.BASIC_INFO,id);
         }
-        return userRepository.findById(id);
+        return user;
     }
 
     public User register(User user) {

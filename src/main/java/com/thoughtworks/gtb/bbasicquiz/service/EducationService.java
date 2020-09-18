@@ -1,6 +1,5 @@
 package com.thoughtworks.gtb.bbasicquiz.service;
 
-import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionFromConstants;
 import com.thoughtworks.gtb.bbasicquiz.domain.Education;
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
@@ -9,6 +8,7 @@ import com.thoughtworks.gtb.bbasicquiz.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EducationService {
@@ -21,21 +21,21 @@ public class EducationService {
         this.educationRepository = educationRepository;
     }
 
-    // GTB: - 跟getEducationById有很多重复代码，能优化不？
     public Education addEducationById(long userId, Education education) throws UserNotExistException {
-        User user = userRepository.findById(userId);
-        if (user == null){
-            throw new UserNotExistException("",userId);
-        }
+        checkUserExist(userId);
         education.setUserId(userId);
         return educationRepository.save(education);
     }
 
     public List<Education> getEducationById(long userId) throws UserNotExistException {
-        User user = userRepository.findById(userId);
-        if (user == null){
-            throw new UserNotExistException(ExceptionFromConstants.EDUCATION_INFO,userId);
-        }
+        checkUserExist(userId);
         return educationRepository.findAllByUserId(userId);
+    }
+
+    private void checkUserExist(long userId) throws UserNotExistException {
+        Optional<User> user = userRepository.findById(userId);
+        if (!user.isPresent()){
+            throw new UserNotExistException("", userId);
+        }
     }
 }
