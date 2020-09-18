@@ -1,6 +1,7 @@
-package com.thoughtworks.gtb.bbasicquiz.repository;
+package com.thoughtworks.gtb.bbasicquiz.repositoryImpl;
 
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
+import com.thoughtworks.gtb.bbasicquiz.repository.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

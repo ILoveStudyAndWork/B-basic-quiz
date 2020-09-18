@@ -12,6 +12,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -34,7 +35,7 @@ public class GlobalExceptionHandler {
                 .timestamp(sdf.format(new Date().getTime()))
                 .error(ExceptionConstants.REQUEST_PARAM_NOT_VALID_MESSAGE)
                 .status(ExceptionConstants.BAD_REQUEST_STATUS)
-                .message(ex.getBindingResult().getFieldError().getDefaultMessage())
+                .message(Objects.requireNonNull(ex.getBindingResult().getFieldError()).getDefaultMessage())
                 .build();
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResult);

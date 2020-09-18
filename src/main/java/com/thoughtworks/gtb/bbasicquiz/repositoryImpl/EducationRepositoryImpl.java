@@ -1,6 +1,7 @@
-package com.thoughtworks.gtb.bbasicquiz.repository;
+package com.thoughtworks.gtb.bbasicquiz.repositoryImpl;
 
 import com.thoughtworks.gtb.bbasicquiz.domain.Education;
+import com.thoughtworks.gtb.bbasicquiz.repository.EducationRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,9 +9,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Repository
-public class EducationRepositoryImpl implements EducationRepository{
+public class EducationRepositoryImpl implements EducationRepository {
 
-    // 改成final
     private static final List<Education> educations = new ArrayList<>();
 
     @Override

@@ -6,6 +6,8 @@ import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
 import com.thoughtworks.gtb.bbasicquiz.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserService {
     private final UserRepository userRepository;
@@ -16,11 +18,11 @@ public class UserService {
 
 
     public User getUserById(long id) throws UserNotExistException {
-        User user = userRepository.findById(id).get();
-        if (user == null ){
+        Optional<User> user = userRepository.findById(id);
+        if (!user.isPresent() ){
             throw new UserNotExistException(ExceptionFromConstants.BASIC_INFO,id);
         }
-        return user;
+        return user.get();
     }
 
     public User register(User user) {
