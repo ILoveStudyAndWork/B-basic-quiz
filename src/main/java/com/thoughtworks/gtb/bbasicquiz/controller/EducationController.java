@@ -18,16 +18,16 @@ public class EducationController {
         this.educationService = educationService;
     }
 
-//    @PostMapping("/users/{userId}/educations")
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public Education addEducationById(@PathVariable Long userId, @RequestBody  @Valid Education education) throws UserNotExistException {
-//        return educationService.addEducationById(userId,education);
-//    }
-//
-//    @GetMapping("/users/{userId}/educations")
-//    public List<Education> getEducationById(@PathVariable Long userId) throws UserNotExistException {
-//        return educationService.getEducationById(userId);
-//    }
-//
+    @PostMapping("/users/{userId}/educations")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Education addEducationById(@PathVariable Long userId, @RequestBody  @Valid Education education) throws UserNotExistException {
+        return educationService.addEducationById(userId,education);
+    }
+
+    @GetMapping("/users/{userId}/educations")
+    public List<Education> getEducationById(@PathVariable Long userId) throws UserNotExistException {
+        return educationService.getEducationById(userId);
+    }
+
 
 }
