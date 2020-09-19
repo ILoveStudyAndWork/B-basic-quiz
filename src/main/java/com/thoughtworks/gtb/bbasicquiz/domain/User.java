@@ -4,16 +4,21 @@ import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionConstants;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private long id;
     @NotNull(message = ExceptionConstants.NAME_CAN_NO_BE_NULL)
     @Length(min = 1,max = 128,message = ExceptionConstants.NAME_LENGTH_CONSTRAIN)
     private String name;
@@ -28,4 +33,8 @@ public class User {
 
     @Length(max = 1024, message = ExceptionConstants.USER_DESCRIPTION_LENGTH_CONSTRAIN)
     private String description;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    private List<Education> educations;
 }
+

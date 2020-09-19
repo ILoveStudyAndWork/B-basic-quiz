@@ -19,7 +19,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable long id) throws UserNotExistException {
+    public User getUserById(@PathVariable Long id) throws UserNotExistException {
         return userService.getUserById(id);
     }
 

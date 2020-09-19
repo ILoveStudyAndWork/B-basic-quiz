@@ -17,7 +17,7 @@ public class UserService {
     }
 
 
-    public User getUserById(long id) throws UserNotExistException {
+    public User getUserById(Long id) throws UserNotExistException {
         Optional<User> user = userRepository.findById(id);
         if (!user.isPresent() ){
             throw new UserNotExistException(ExceptionFromConstants.BASIC_INFO,id);
@@ -26,7 +26,6 @@ public class UserService {
     }
 
     public User register(User user) {
-        user.setId(userRepository.count() +1);
         return userRepository.save(user);
     }
 }

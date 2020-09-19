@@ -20,22 +20,23 @@ public class EducationService {
         this.userRepository = userRepository;
         this.educationRepository = educationRepository;
     }
-
-    public Education addEducationById(long userId, Education education) throws UserNotExistException {
-        checkUserExist(userId);
-        education.setUserId(userId);
-        return educationRepository.save(education);
-    }
-
-    public List<Education> getEducationById(long userId) throws UserNotExistException {
-        checkUserExist(userId);
-        return educationRepository.findAllByUserId(userId);
-    }
-
-    private void checkUserExist(long userId) throws UserNotExistException {
-        Optional<User> user = userRepository.findById(userId);
-        if (!user.isPresent()){
-            throw new UserNotExistException("", userId);
-        }
-    }
+//
+//    public Education addEducationById(Long userId, Education education) throws UserNotExistException {
+//        User user = checkUserExist(userId);
+//        education.setUser(user);
+//        return educationRepository.save(education);
+//    }
+//
+//    public List<Education> getEducationById(Long userId) throws UserNotExistException {
+//        checkUserExist(userId);
+//        return educationRepository.findAllByUserId(userId);
+//    }
+//
+//    private User checkUserExist(Long userId) throws UserNotExistException {
+//        Optional<User> user = userRepository.findById(userId);
+//        if (!user.isPresent()){
+//            throw new UserNotExistException("", userId);
+//        }
+//        return user.get();
+//    }
 }
