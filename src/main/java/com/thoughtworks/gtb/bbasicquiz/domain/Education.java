@@ -10,7 +10,6 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Data
 @Builder
@@ -34,6 +33,7 @@ public class Education {
     @NotNull(message = ExceptionConstants.EDUCATION_DESCRIPTION_CAN_NOT_BE_NULL)
     @Length(min = 1,max = 4096,message = ExceptionConstants.EDUCATION_DESCRIPTION_LENGTH_CONSTRAIN)
     private String description;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name="userId")
