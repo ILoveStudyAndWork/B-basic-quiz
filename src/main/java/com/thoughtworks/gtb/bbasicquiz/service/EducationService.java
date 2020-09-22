@@ -26,12 +26,13 @@ public class EducationService {
         education.setUser(user);
         return educationRepository.save(education);
     }
-
+    // todo
     public List<Education> getEducationById(Long userId) throws UserNotExistException {
         checkUserExist(userId);
         return educationRepository.findAllByUserId(userId);
     }
 
+    // todo 去耦合
     private User checkUserExist(Long userId) throws UserNotExistException {
         Optional<User> user = userRepository.findById(userId);
         if (!user.isPresent()){

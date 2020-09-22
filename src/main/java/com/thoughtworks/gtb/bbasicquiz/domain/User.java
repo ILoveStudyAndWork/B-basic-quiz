@@ -25,7 +25,7 @@ public class User {
 
     @NotNull(message = ExceptionConstants.AGE_CAN_NOT_BE_NULL)
     @Min(value = 16,message = ExceptionConstants.AGE_LENGTH_CONSTRAIN)
-    private long age;
+    private Long age;
 
     @NotNull(message = ExceptionConstants.AVATAR_CAN_NOT_BE_NULL)
     @Length(min = 8, max = 512, message = ExceptionConstants.AVATAR_LENGTH_CONSTRAIN)
@@ -34,7 +34,5 @@ public class User {
     @Length(max = 1024, message = ExceptionConstants.USER_DESCRIPTION_LENGTH_CONSTRAIN)
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
-    private List<Education> educations;
 }
 
