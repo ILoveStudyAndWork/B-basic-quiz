@@ -1,5 +1,6 @@
 package com.thoughtworks.gtb.bbasicquiz.service;
 
+import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionFromConstants;
 import com.thoughtworks.gtb.bbasicquiz.domain.Education;
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
@@ -36,7 +37,7 @@ public class EducationService {
     private User checkUserExist(Long userId) throws UserNotExistException {
         Optional<User> user = userRepository.findById(userId);
         if (!user.isPresent()){
-            throw new UserNotExistException("", userId);
+            throw new UserNotExistException(ExceptionFromConstants.EDUCATION_INFO, userId);
         }
         return user.get();
     }
