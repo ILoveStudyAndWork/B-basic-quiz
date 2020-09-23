@@ -9,7 +9,6 @@ import com.thoughtworks.gtb.bbasicquiz.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EducationService {
@@ -23,22 +22,17 @@ public class EducationService {
     }
 
     public Education addEducationById(Long userId, Education education) throws UserNotExistException {
-        User user = checkUserExist(userId);
-        education.setUser(user);
+        checkUserExist(userId);
+        userRepository.findById(userId).ifPresent(education::setUser);
         return educationRepository.save(education);
     }
-    // todo
+
     public List<Education> getEducationById(Long userId) throws UserNotExistException {
         checkUserExist(userId);
         return educationRepository.findAllByUserId(userId);
     }
 
-    // todo 去耦合
-    private User checkUserExist(Long userId) throws UserNotExistException {
-        Optional<User> user = userRepository.findById(userId);
-        if (!user.isPresent()){
-            throw new UserNotExistException(ExceptionFromConstants.EDUCATION_INFO, userId);
-        }
-        return user.get();
+    public void checkUserExist(Long userId) throws UserNotExistException {
+        userRepository.findById(userId).orElseThrow(() -> new UserNotExistException(ExceptionFromConstants.EDUCATION_INFO, userId));
     }
 }

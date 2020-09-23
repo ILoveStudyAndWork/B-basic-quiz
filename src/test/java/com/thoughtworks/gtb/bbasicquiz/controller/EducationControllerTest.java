@@ -1,13 +1,11 @@
 package com.thoughtworks.gtb.bbasicquiz.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionConstants;
 import com.thoughtworks.gtb.bbasicquiz.constants.ExceptionFromConstants;
 import com.thoughtworks.gtb.bbasicquiz.domain.Education;
 import com.thoughtworks.gtb.bbasicquiz.domain.User;
 import com.thoughtworks.gtb.bbasicquiz.exception.UserNotExistException;
 import com.thoughtworks.gtb.bbasicquiz.service.EducationService;
-import com.thoughtworks.gtb.bbasicquiz.service.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -18,19 +16,12 @@ import org.springframework.boot.test.autoconfigure.json.AutoConfigureJsonTesters
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.json.JacksonTester;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.fasterxml.jackson.databind.MapperFeature.USE_ANNOTATIONS;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.verify;
