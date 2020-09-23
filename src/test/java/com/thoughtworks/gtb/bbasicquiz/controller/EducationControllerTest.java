@@ -115,7 +115,7 @@ class EducationControllerTest {
         class WhenEducationMessageNotValid{
 
             @Test
-            void should_return_YEAR_CAN_NO_BE_NULL() throws Exception {
+            void should_return_year_can_not_be_null_exception() throws Exception {
                 education.setYear(null);
                 mockMvc.perform(post("/users/123/educations")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -127,7 +127,7 @@ class EducationControllerTest {
             }
 
             @Test
-            void should_return_EDUCATION_TITLE_CAN_NOT_BE_NULL() throws Exception {
+            void should_return_education_title_can_not_be_null_exception() throws Exception {
                 education.setTitle(null);
                 mockMvc.perform(post("/users/123/educations")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -140,7 +140,7 @@ class EducationControllerTest {
         }
 
         @Test
-        void should_return_EDUCATION_TITLE_LENGTH_CONSTRAIN() throws Exception {
+        void should_return_education_title_length_constrain_exception() throws Exception {
             education.setTitle("");
             mockMvc.perform(post("/users/123/educations")
                     .contentType(MediaType.APPLICATION_JSON)
@@ -153,7 +153,7 @@ class EducationControllerTest {
 
 
         @Test
-        void should_return_EDUCATION_DESCRIPTION_CAN_NOT_BE_NULL() throws Exception {
+        void should_return_education_description_can_not_be_null_exception() throws Exception {
             education.setDescription(null);
             mockMvc.perform(post("/users/123/educations")
                     .contentType(MediaType.APPLICATION_JSON)
@@ -165,7 +165,7 @@ class EducationControllerTest {
         }
 
         @Test
-        void should_return_EDUCATION_DESCRIPTION_LENGTH_CONSTRAIN() throws Exception {
+        void should_return_education_deacription_length_constrain_exception() throws Exception {
             education.setDescription("");
             mockMvc.perform(post("/users/123/educations")
                     .contentType(MediaType.APPLICATION_JSON)
@@ -201,7 +201,7 @@ class EducationControllerTest {
         @Nested
         class whenUserIdNotExist{
             @Test
-            void should_return_user_not_exist() throws Exception {
+            void should_return_user_not_exist_exception() throws Exception {
                 when(educationService.getEducationById(234L)).thenThrow(new UserNotExistException(ExceptionFromConstants.EDUCATION_INFO, 234L));
 
                 mockMvc.perform(get("/users/234/educations")

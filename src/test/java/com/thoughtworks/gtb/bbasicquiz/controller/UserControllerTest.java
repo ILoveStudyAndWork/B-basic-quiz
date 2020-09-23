@@ -85,7 +85,7 @@ class UserControllerTest {
         class WhenUserIdNotExisted {
 
             @Test
-            public void should_return_NOT_FOUND() throws Exception {
+            public void should_return_user_not_found_exception() throws Exception {
                 when(userService.getUserById(123L)).thenThrow(new UserNotExistException(ExceptionFromConstants.BASIC_INFO,123L));
 
                 mockMvc.perform(get("/users/{id}", 123L))
@@ -124,7 +124,7 @@ class UserControllerTest {
         class whenUserMessageNotPassValidation{
 
             @Test
-            public void should_return_NAME_CAN_NO_BE_NULL() throws Exception {
+            public void should_return_name_can_not_be_null_exception() throws Exception {
                 firstUser.setName(null);
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -136,7 +136,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_NAME_LENGTH_CONSTRAIN() throws Exception {
+            public void should_return_name_length_constrain_exception() throws Exception {
                 firstUser.setName("");
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -148,7 +148,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_AGE_CAN_NOT_BE_NULL() throws Exception {
+            public void should_return_age_can_not_be_null_exception() throws Exception {
                 firstUser.setAge(null);
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -160,7 +160,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_AGE_LENGTH_CONSTRAIN() throws Exception {
+            public void should_return_age_length_constrain_exception() throws Exception {
                 firstUser.setAge(15L);
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -172,7 +172,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_AVATAR_CAN_NOT_BE_NULL() throws Exception {
+            public void should_return_avatar_can_not_be_null_exception() throws Exception {
                 firstUser.setAvatar(null);
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -184,7 +184,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_AVATAR_LENGTH_CONSTRAIN() throws Exception {
+            public void should_return_avatar_length_constrain_exception() throws Exception {
                 firstUser.setAvatar("");
                 mockMvc.perform(post("/users")
                         .content(userJson.write(firstUser).getJson())
@@ -196,7 +196,7 @@ class UserControllerTest {
             }
 
             @Test
-            public void should_return_USER_DESCRIPTION_LENGTH_CONSTRAIN() throws Exception {
+            public void should_return_user_description_length_constrain_exception() throws Exception {
                 final int MinNotValidLength = 1025;
                 firstUser.setDescription(prePareNotValidDescription(MinNotValidLength));
                 mockMvc.perform(post("/users")

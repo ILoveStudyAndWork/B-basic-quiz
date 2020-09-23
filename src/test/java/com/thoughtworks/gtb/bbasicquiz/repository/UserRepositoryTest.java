@@ -56,7 +56,7 @@ class UserRepositoryTest {
     }
 
     @Test
-    void should_optional_when_id_not_exists() {
+    void should_empty_optional_when_id_not_exists() {
         entityManager.persistAndFlush(user);
         Optional<User> found = userRepository.findById(3L);
 
